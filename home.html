@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: #111;
+        color: white;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.5s ease;
+      }
+      .nav-links a:hover {
+        color: aqua;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger span {
+        height: 3px;
+        width: 25px;
+        background: white;
+      }
+      .footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+      input {
+        border-radius: 100px;
+        border: none;
+        padding: 0.5em 1em;
+        box-shadow: 0 5px 10px rgba(180, 174, 174, 0.167);
+      }
+      input[type="submit"] {
+        background: #111;
+        color: white;
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background: #222;
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          padding: 1rem;
+          border-radius: 10px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .box {
+        background: #f3f3f3;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      footer {
+        background: #111;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo" id="logo">Luffy</div>
+      <nav>
+        <div class="nav-links" id="menu">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="./index.html">logout</a>
+        </div>
+        <div class="hamburger" id="toggleBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="box">Box 1
+      </div>
+      <div class="box box2" id="box2">Box 2 <br>
+        
+      </div>
+      <div class="box" id="hoverBox">Box 3</div>
+      <div class="box">Box 4</div>
+    </main>
+
+    <footer class="footer">
+      &copy; 2025 Luffy Web Clone. All rights reserved.
+    </footer>
+
+    <script>
+      const user = JSON.parse(localStorage.getItem("logginedUsers"));
+     if(user){
+        document.getElementById("logo").
+        innerText =`WELCOME ${user.name} ✌️✌️`;
+      }
+      else{
+        alert("user details not found please login...!");
+        window.location.href="./index.html"
+      }
+      const menu = document.getElementById("menu");
+      const toggleBtn = document.getElementById("toggleBtn");
+      
+      toggleBtn.addEventListener("click", () => {
+        menu.classList.toggle("active");
+      });
+      
+      
+      document.getElementById("hoverBox").addEventListener("mouseover",
+        ()=>{console.log("Move is over the box");}
+      );
+
+      document.addEventListener("keydown",(e)=>{
+       switch(e.key){
+        case "r":{document.body.style.backgroundColor="red"};break;
+        case "w":{document.body.style.backgroundColor="white"};break;
+        case "p":{document.body.style.backgroundColor="pink"};break;
+        case "o":{document.body.style.backgroundColor="orange"};
+        case "m":{document.body.style.background="linearGradiant(white , rgb(0,122,111),blue)"}
+        
+       }
+      });
+        //(...x) it is a rest operator ... it will pack all the given values into an array.
+          function add(...x){
+            let sum=0;
+            for(let c of x){
+            
+              sum +=c;
+            }
+            return sum;
+          }
+       
+       
+    </script>
+    
+  </body>
+</html>

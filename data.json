@@ -1,0 +1,21 @@
+[{
+    "id":1,
+    "Username":"Luffy",
+    "Password": "Luffy@1234",
+    "Name":"Monkey D Luffy",
+    "age" : 19
+},
+{
+    "id":2,
+    "Username":"Naruto",
+    "Password": "Naruto@1234",
+    "Name":"Uzumaki Naruto",
+    "age" : 31
+},
+{
+    "id":3,
+    "Username":"Goku",
+    "Password": "Goku@1234",
+    "Name":"Son Goku",
+    "age" : 31
+}]

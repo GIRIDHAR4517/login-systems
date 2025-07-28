@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <title>login</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgb(192, 191, 190);
+            padding: 5vw;
+        }
+        form{
+            max-width: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: auto;
+        }
+        input ,label{
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            
+        }
+        input{
+            border-radius: 50px;
+            padding: 10px 15px;
+            border: 2px solid black;
+        }
+        input[type="submit"]{
+            border: none;
+            border-radius: 50px;
+            background: rgb(7, 15, 21);
+            padding: 8.5px;
+            color: white;
+            font-weight: bolder;
+            cursor: pointer;
+            transition: 2s ease;
+        }
+        input[type="submit"]:hover{
+            background: rgb(118, 240, 118);
+            color: black;
+        }
+        p{
+            text-align: center;
+        }
+
+        .password-container{
+        display: flex;
+        }
+        button[type="button"]{
+        background: none;
+        border: none;
+        transform: translateY(-15%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+        <form action="./index.html" id="form" >
+            <h2>Login</h2>
+            <label for="">Username : </label>
+            <input type="text" name="Username" id="Username" placeholder="Enter username">
+            <label for="">Password :</label>
+
+            <div class="password-container">
+                <input type="password" name="password" id="Password" placeholder="Enter Password " required>
+
+                <button type="button" id="togglePassword">
+                <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+            
+          
+            <input type="submit" name="submit" id="submit" value="login">
+
+            <p>Dont have account? <a href="./registration.html">Register</a></p>
+        </form>
+    
+
+
+   
+
+    <script src="./async.js" ></script>
+</body>
+</html>

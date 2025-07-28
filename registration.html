@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 100px;
+      background-color: #74a8df;
+    }
+
+    form {
+      max-width: 400px;
+      margin: auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label, input {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    input{
+      padding: 5px 15px;
+      border: 2px solid black;
+      border-radius: 50px;
+    }
+
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .password-container{
+      display: flex;
+    }
+    button[type="button"]{
+      background: none;
+      border: none;
+      transform: translateY(-15%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="registerForm">
+    <h2>Register</h2>
+    <label for="Name">Name:</label>
+    <input type="text" name="Name" id="Name" placeholder="Enter your name">
+    <label for="username">Username:</label>
+    <input type="text" id="username" placeholder="Enter username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter password" required>
+    
+   
+    <label for="confirmpassword"> confirm Password:</label>
+    
+    <div class="password-container">
+      <input type="password" id="confirmpassword" placeholder="confirm password" required>
+      <button type="button" id="togglePassword">
+      <i class="fa-solid fa-eye"></i>
+    </button>
+    </div>
+    
+    
+
+    <input type="submit" value="Register">
+
+    <p>Already have an account? <a href="./index.html">Login</a></p>
+  </form>
+
+   <script>
+    
+    document.getElementById("registerForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const confirmPassword = document.getElementById("confirmpassword").value.trim();
+      const name = document.getElementById("Name").value.trim();
+      if(password!=confirmPassword){
+        alert("Password and confirm password must be same");
+        return;
+      }
+      if (!username || !password ||!name) {
+        alert("All fields are required.");
+        return;
+      }
+
+
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+     
+      if (!Array.isArray(users)) {
+        users = [];
+      }
+
+     
+      const exists = users.some(u => u.username === username);
+      if (exists) {
+        alert("Username already exists.");
+        return;
+      }
+
+      
+      users.push({ username, password ,name });
+      
+
+      
+      localStorage.setItem("users", JSON.stringify(users));
+
+      alert("Registered successfully!");
+      e.target.reset();
+      window.location.href="./index.html";
+      
+    });
+
+    const toggleBtn = document.getElementById("togglePassword");
+    const passwordField = document.getElementById("confirmpassword");
+    const icon = toggleBtn.querySelector("i");
+  
+
+    toggleBtn.addEventListener("click" , ()=>{
+      if(passwordField.type === "password"){
+        passwordField.type ="text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+      }else{
+        passwordField.type ="password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+      }
+    });
+
+
+   
+  </script>
+
+</body>
+</html>
