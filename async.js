@@ -114,14 +114,20 @@
 //     }
 // });
 
+const checkbox =document.getElementById("check-box");
+let isChecked = false;
+checkbox.addEventListener("change", function () {
+    this.checked ? isChecked=true :isChecked=false;
+  
+ console.log(isChecked);
+});
+
 
 document.getElementById("form").addEventListener("submit", (e)=>{
     e.preventDefault();
 
     const username = document.getElementById("Username").value.trim();
     const password = document.getElementById("Password").value.trim();
-    
-    // if(uData.length ===0) await fetching();
 
     const data = JSON.parse(localStorage.getItem("users"));
     console.log(data);
@@ -131,10 +137,6 @@ document.getElementById("form").addEventListener("submit", (e)=>{
             user.username === username && user.password===password
         );
     };
-
-    console.log(validatee);
-
-
 
     let matched = validatee(username , password);
     localStorage.setItem("logginedUsers",JSON.stringify(matched)); 
@@ -149,7 +151,10 @@ document.getElementById("form").addEventListener("submit", (e)=>{
     }else{
        alert("invalid credentials...!")
     }
+
+    
 });
+
 
     const toggleBtn = document.getElementById("togglePassword");
     const passwordField = document.getElementById("Password");
@@ -166,7 +171,11 @@ document.getElementById("form").addEventListener("submit", (e)=>{
         icon.classList.remove("fa-eye-slash");
         icon.classList.add("fa-eye");
       }
-    });
+    }
+
+);
+
+
 
 
 
