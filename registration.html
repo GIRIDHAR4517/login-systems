@@ -16,16 +16,22 @@
     body {
       font-family: Arial, sans-serif;
       padding: 100px;
-      background-color: #74a8df;
+      background: url("./shooting-stars-crescent-night-sky-moon-cp0zey6di3g30iip.jpg") no-repeat;
+
+      background-size: cover;
+      background-position: center;
     }
 
     form {
       max-width: 400px;
       margin: auto;
       padding: 20px;
-      background-color: white;
+      background-color: transparent;
       border-radius: 10px;
+      color: white;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      backdrop-filter: blur(3px);
+      border: 0.2px solid rgb(243, 240, 240);
     }
 
     label, input {
@@ -46,6 +52,7 @@
       padding: 10px;
       border-radius: 50px;
       cursor: pointer;
+      outline: none;
     }
 
     input[type="submit"]:hover {
@@ -68,6 +75,28 @@
       cursor: pointer;
       font-size: 18px;
     }
+    form h2{
+      text-align: center;
+
+    }
+    form input{
+      position: relative;
+    }
+    form i{
+      position: absolute;
+      top: 11px;
+      right: 15px;
+   
+    }
+    form p a{
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+
+    }
+    form a:hover{
+      text-decoration:underline;
+    }
   </style>
 </head>
 <body>
@@ -83,13 +112,13 @@
     <input type="password" id="password" placeholder="Enter password" required>
     
    
-    <label for="confirmpassword"> confirm Password:</label>
+    <label for="confirmpassword" > confirm Password:</label>
     
     <div class="password-container">
       <input type="password" id="confirmpassword" placeholder="confirm password" required>
       <button type="button" id="togglePassword">
-      <i class="fa-solid fa-eye"></i>
-    </button>
+       <i class="fa-solid fa-eye"></i>
+      </button>
     </div>
     
     
