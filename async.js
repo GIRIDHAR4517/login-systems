@@ -143,8 +143,11 @@ document.getElementById("form").addEventListener("submit", (e)=>{
 
   
     if(matched){
-        document.body.style.filter="blur(4px)";
+        document.querySelector('form').
+        classList.add("blur");
         
+        document.getElementById("loader").
+        style.display="block";
         setTimeout(()=>{
             window.location.href="./home.html"
         },1000);
