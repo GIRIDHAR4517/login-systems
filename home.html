@@ -77,6 +77,21 @@
         color: white;
         font-weight: bold;
       }
+      .loader{
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50% ,-50%);
+          border: 6px solid hsl(0, 0%, 4%);
+          border-top: 6px solid #ecedee;
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          animation: spin 1s linear infinite;
+          z-index: 1000;
+          display: none;
+
+        }
 
       @media (max-width: 768px) {
         .nav-links {
@@ -112,6 +127,16 @@
         border-radius: 10px;
         text-align: center;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+       
+      }
+      #dice:hover{
+        box-shadow: 0 4px 10px rgba(9, 9, 9, 0.718) ;
+      }
+      #dice{
+        background: url("./joel-abraham-8RRYJg26Wr4-unsplash.jpg");
+        background-size: cover;
+        background-position: center;
       }
 
       footer {
@@ -121,6 +146,15 @@
         padding: 1rem;
         margin-top: 2rem;
       }
+
+      @keyframes spin {
+          0%{transform: translate(-50%,50%) rotate(0deg);}
+          100%{transform: translate(-50%,50%) rotate(360deg);}
+            
+        }
+        .blur{
+          filter: blur(5px);
+        }
     </style>
   </head>
   <body>
@@ -142,7 +176,8 @@
     </header>
 
     <main>
-      <div class="box">Box 1
+      <div class="box " id="dice">
+  
       </div>
       <div class="box box2" id="box2">Box 2 <br>
         
@@ -150,6 +185,7 @@
       <div class="box" id="hoverBox">Box 3</div>
       <div class="box">Box 4</div>
     </main>
+    <div id="loader" class="loader" ></div>
 
     <footer class="footer">
       &copy; 2025 Luffy . All rights reserved.
@@ -159,7 +195,7 @@
       const user = JSON.parse(localStorage.getItem("logginedUsers"));
      if(user){
         document.getElementById("logo").
-        innerText =`WELCOME ${user.name} ✌️✌️`;
+        innerText =`WELCOME ${user.name} 😊`;
       }
       else{
         alert("user details not found please login...!");
@@ -172,11 +208,6 @@
         menu.classList.toggle("active");
       });
       
-      
-      document.getElementById("hoverBox").addEventListener("mouseover",
-        ()=>{console.log("Move is over the box");}
-      );
-
       document.addEventListener("keydown",(e)=>{
        switch(e.key){
         case "r":{document.body.style.backgroundColor="red"};break;
@@ -187,16 +218,18 @@
         
        }
       });
-        //(...x) it is a rest operator ... it will pack all the given values into an array.
-          function add(...x){
-            let sum=0;
-            for(let c of x){
-            
-              sum +=c;
-            }
-            return sum;
-          }
-       
+      let dice = document.getElementById("dice");
+      dice.addEventListener("click",()=>{
+        document.querySelector('main').
+        classList.add("blur");
+        
+        document.getElementById("loader").
+        style.display="block";
+        setTimeout(()=>{
+          location.href="./dice.html"
+        },1000)
+        
+      })
        
     </script>
     

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-content: center;
+            height: 100vh;
+            background: url("./william-warby-Ud2YdGYZajk-unsplash.jpg") no-repeat;
+            min-height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+        main{
+            width: 75%;
+            max-width: 600px;
+            background:transparent;
+            border: 1px solid white;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: auto;
+            color: rgb(8, 8, 8);
+            backdrop-filter: blur(3px);
+            
+        }
+
+        .number-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 10px;
+        }
+        .number{
+            height: 10vh;
+            width: 10%;
+            align-content: center;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            background: white;
+            cursor: pointer;
+        }
+        .even-odd{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 10px;
+         
+
+        }
+        .eo{
+           height: 8vh;
+            width: 35%;
+            align-content: center;
+            text-align: center;
+            border: 2px solid black;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            background: white;
+            cursor: pointer; 
+        }
+        #even,#two,#four,#six{
+            background-color: red;
+        }
+        #odd,#one,#three,#five{
+            background-color: green;
+        }
+    
+        
+        button{
+            height: 7.5vh;
+            width: 15vw;
+            border-radius: 25px;
+            font-size: 20px;
+            font-weight: 600;
+            box-shadow: 2px 2px 3px black;
+            cursor: pointer;
+            border: none;
+            outline: none;
+        }
+        .btn{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="number-container">
+            <div class="number" id="one">1</div>
+            <div class="number" id="two">2</div>
+            <div class="number" id="three">3</div>
+            <div class="number" id="four">4</div>
+            <div class="number" id="five">5</div>
+            <div class="number" id="six">6</div>
+        </div>
+        <div class="even-odd">
+            <div class="eo" id="even">
+                even
+            </div>
+            <div class="eo" id="odd" >odd</div>
+        </div>
+        <div class="btn">
+            <button id="play">play</button>
+        </div>
+        
+    </main>
+</body>
+</html>
