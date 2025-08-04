@@ -34,6 +34,16 @@
             backdrop-filter: blur(3px);
             
         }
+        #result ,#myResult{
+            width: 100%;
+            text-align: center;
+            background-color: aqua;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 2em;
+            margin-bottom: 2%;
+            box-shadow: 1px 1px 1px  rgb(124, 166, 229);
+        }
 
         .number-container{
             display: flex;
@@ -198,6 +208,9 @@
 
     </nav>
     <main>
+        <div id="result">Please select even or odd</div>
+        <div id="myResult">Your Result</div>
+
         <div class="number-container">
             <div class="number" id="one">1</div>
             <div class="number" id="two">2</div>
@@ -212,9 +225,9 @@
             </div>
             <div class="eo" id="odd" >odd</div>
         </div>
-        <div class="btn">
+        <!-- <div class="btn">
             <button id="play">play</button>
-        </div>
+        </div> -->
         
     </main>
 
@@ -237,25 +250,31 @@
         else if(roll>6) return roll-4;
         else return roll;
        }
-       document.getElementById("play").addEventListener("click",()=>{
-       
+
+       setInterval(()=>{
         let dice = diceRoller();
         let computerChoice;
         if(dice %2 ==0) computerChoice='even';
         else computerChoice='odd';
-        if(choice===undefined)alert("please select even or odd...!");
-        else if(choice === computerChoice){
+        document.getElementById("result").innerHTML=`${dice}   :  ${computerChoice}`;
+
+        if(choice){
+            if(choice === computerChoice){
             score++;
             document.getElementById("display").innerText=`Score : ${score}`;
-            alert(`Result : ${dice}... congrats...😁`)
-        }else{
-            score--;
-            document.getElementById("display").innerText=`Score : ${score}`;
-            alert(`Result : ${dice}...Better luck next time 😒`);
+            document.getElementById("myResult").innerHTML=`Congrats you won 😊`;
+            }else{
+                score--;
+                document.getElementById("display").innerText=`Score : ${score}`;
+                document.getElementById("myResult").innerHTML=`Better luck next time 😒`;
 
+            }
+        }else{
+          document.getElementById("myResult").innerHTML=`Choose Even or odd to play`;  
         }
         choice=undefined;
-       }) ;
+       },10000);
+
        document.getElementById("reset").addEventListener("click",()=>{
         score=0;
         document.getElementById("display").innerText=`Score : ${score}`;
